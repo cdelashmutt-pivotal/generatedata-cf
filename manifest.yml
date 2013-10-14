@@ -1,0 +1,16 @@
+--- 
+applications: 
+# - buildpack: https://github.com/cdelashmutt-pivotal/cf-php-apache-buildpack
+- buildpack: https://github.com/dmikusa-pivotal/cf-php-apache-buildpack
+  services: 
+    mysql1: 
+      provider: cleardb
+      plan: spark
+      label: cleardb
+      version: n/a
+  path: .
+  instances: 1
+  memory: 256M
+  name: gendata-next
+  host: gendata-cdd-${random-word}
+  domain: cfapps.io
